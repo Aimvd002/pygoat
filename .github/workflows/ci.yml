@@ -5,6 +5,7 @@ on:
     branches: [ "master", "main" ]
  
 jobs:
+  # ─── FASE 1: Análisis SAST con Bandit ───────────────
   bandit_scan:
     name: Run Bandit SAST Scan
     runs-on: ubuntu-latest
@@ -33,6 +34,7 @@ jobs:
           name: sast-bandit-sarif
           path: sast-bandit.sarif
  
+  # ─── FASE 2: Análisis SAST en Paralelo con Semgrep ───────────────
   semgrep_scan:
     name: Run Semgrep Scan
     runs-on: ubuntu-latest
@@ -60,6 +62,7 @@ jobs:
           name: sast-semgrep-sarif
           path: sast-semgrep.sarif
  
+  # ─── FASE 3: Build Docker + Docker Scout (espera a los SAST) ───────────────
   docker_build_and_scan:
     name: Build y análisis de imagen Docker
     runs-on: ubuntu-latest
@@ -89,4 +92,3 @@ jobs:
           exit-code: false
           dockerhub-user: ${{ secrets.DOCKER_USER }}
           dockerhub-password: ${{ secrets.DOCKER_PASSWORD }}
-
