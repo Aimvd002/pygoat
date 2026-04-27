@@ -56,7 +56,7 @@ jobs:
           name: sast-bandit-sarif
           path: sast-bandit.sarif
 
-  # ─── JOB 2: SAST con Semgrep (paralelo a Bandit) ──────────────────────────
+  # ─── JOB 2: SAST con Semgrep  (paralelo a Bandit) ──────────────────────────
   semgrep_scan:
     name: Run Semgrep Scan
     runs-on: ubuntu-latest
