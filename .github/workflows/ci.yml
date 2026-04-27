@@ -36,7 +36,7 @@ jobs:
           name: sast-bandit-results
           path: sast-bandit.json
 
-  # FASE 2: Análisis SAST con Semgrep (En paralelo)  
+  # FASE 2: Análisis SAST con Semgrep (En paralelo).
   semgrep_scan:
     name: Run Semgrep Scan
     runs-on: ubuntu-latest
